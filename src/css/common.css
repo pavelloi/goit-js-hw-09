@@ -16,8 +16,11 @@ img {
   display: block;
   max-width: 100%;
 }
-span {
+.label {
   font-size: 40px;
+}
+.value {
+  font-size: 60px;
   font-weight: 700;
 }
 .timer {
