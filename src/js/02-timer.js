@@ -57,12 +57,13 @@ function convertMs(ms) {
     timerValue[2].textContent = addLeadingZero(minutes);
     timerValue[3].textContent = addLeadingZero(seconds);
 
-    
   return { days, hours, minutes, seconds };
 }
+
 function addLeadingZero(value) {
     return String(value).padStart(2, "0");
 }
+
 function addLeadingZeroForDays(value) {
     return String(value).padStart(3, "0");
 }
