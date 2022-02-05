@@ -21,9 +21,12 @@ const options = {
     console.log(selectedDates[0]);
   },
 };
+
 let timerId = null;
 let refTime = null;
+
 startBtn.setAttribute("disabled", "disabled");
+
 flatpickr(dateInput, options);
 
 startBtn.addEventListener("click", startToCountdown);
@@ -47,15 +50,18 @@ function convertMs(ms) {
   const hour = minute * 60;
   const day = hour * 24;
 
-  const days = Math.floor(ms / day);
-  const hours = Math.floor((ms % day) / hour);
-  const minutes = Math.floor(((ms % day) % hour) / minute);
-  const seconds = Math.floor((((ms % day) % hour) % minute) / second);
-    
-    timerValue[0].textContent = addLeadingZeroForDays(days);
-    timerValue[1].textContent = addLeadingZero(hours);
-    timerValue[2].textContent = addLeadingZero(minutes);
-    timerValue[3].textContent = addLeadingZero(seconds);
+  const days = addLeadingZeroForDays(Math.floor(ms / day));
+  const hours = addLeadingZero(Math.floor((ms % day) / hour));
+  const minutes = addLeadingZero(Math.floor(((ms % day) % hour) / minute));
+  const seconds = addLeadingZero(Math.floor((((ms % day) % hour) % minute) / second));
+    // не совсем понял комментарий по-поводу конкретно помещать минуты в минуты и тд. 
+    // timerValue[2].textContent = addLeadingZero(minutes);
+    // типа чтобы тут было ...textContent = minutes, то есть минуты = минуты без вызова функции???
+    // я перенёс вызов функций наверх. Но опять же, может я неправильно понял.
+    timerValue[0].textContent = days;
+    timerValue[1].textContent = hours;
+    timerValue[2].textContent = minutes;
+    timerValue[3].textContent = seconds;
 
   return { days, hours, minutes, seconds };
 }

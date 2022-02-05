@@ -1,16 +1,19 @@
 const startBtn = document.querySelector("button[data-start]");
 const stopBtn = document.querySelector("button[data-stop]");
+stopBtn.setAttribute("disabled", "disabled")
 
 const onStartClick = () => {
     timerId = setInterval(() => {
         document.body.style.backgroundColor = getRandomHexColor();
     }, 1000);
     startBtn.setAttribute("disabled", "disabled")
+    stopBtn.removeAttribute("disabled", "disabled")
 };
 
 const onStopClick = () => {
     clearInterval(timerId);
     startBtn.removeAttribute("disabled", "disabled");
+    stopBtn.setAttribute("disabled", "disabled")
 };
 
 function getRandomHexColor() {
