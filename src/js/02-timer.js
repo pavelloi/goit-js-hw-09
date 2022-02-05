@@ -32,6 +32,7 @@ flatpickr(dateInput, options);
 startBtn.addEventListener("click", startToCountdown);
 
 function startToCountdown() {
+    
     timerId = setInterval(() => {
         if (refTime >= 1000) {
             refTime -= 1000;
