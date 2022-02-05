@@ -3,7 +3,6 @@ const stopBtn = document.querySelector("button[data-stop]");
 let timerId = null;
 stopBtn.setAttribute("disabled", "disabled")
 
-
 const onStartClick = () => {
     timerId = setInterval(() => {
         document.body.style.backgroundColor = getRandomHexColor();
