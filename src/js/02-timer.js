@@ -4,7 +4,12 @@ import Notiflix from 'notiflix';
 
 const dateInput = document.querySelector("#datetime-picker")
 const startBtn = document.querySelector("button[data-start]")
-const timerValue = document.querySelectorAll(".value")
+// const timerValue = document.querySelectorAll(".value")
+const timerDays = document.querySelector("[data-days]");
+const timerHours = document.querySelector("[data-hours]");
+const timerMinutes = document.querySelector("[data-minutes]");
+const timerSeconds = document.querySelector("[data-seconds]");
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -55,14 +60,11 @@ function convertMs(ms) {
   const hours = addLeadingZero(Math.floor((ms % day) / hour));
   const minutes = addLeadingZero(Math.floor(((ms % day) % hour) / minute));
   const seconds = addLeadingZero(Math.floor((((ms % day) % hour) % minute) / second));
-    // не совсем понял комментарий по-поводу конкретно помещать минуты в минуты и тд. 
-    // timerValue[2].textContent = addLeadingZero(minutes);
-    // типа чтобы тут было ...textContent = minutes, то есть минуты = минуты без вызова функции???
-    // я перенёс вызов функций наверх. Но опять же, может я неправильно понял.
-    timerValue[0].textContent = days;
-    timerValue[1].textContent = hours;
-    timerValue[2].textContent = minutes;
-    timerValue[3].textContent = seconds;
+
+    timerDays.textContent = days;
+    timerHours.textContent = hours;
+    timerMinutes.textContent = minutes;
+    timerSeconds.textContent = seconds;
 
   return { days, hours, minutes, seconds };
 }
